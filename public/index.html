@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<title>Inventory Dashboard</title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body>
+		<div ng-controller="CategoryController">
+  			<table class="table table-striped">
+  				<thead>
+						<th>Id</th>
+						<th>Category</th>
+						<th>Created at</th>
+				</thead>
+ 				<tbody>
+				<tr data-ng-repeat="category in categories">
+					<td>{{category.id}}</td>
+					<td>{{category.name}}</td>
+					<td>{{category.created_at}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</body>
+
+	<script src="controller/category.js"></script>
+</html>
