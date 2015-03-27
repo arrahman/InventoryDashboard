@@ -1,0 +1,16 @@
+<div>
+	<table class="table table-striped">
+		<thead>
+			<th>Id</th>
+			<th>Category</th>
+			<th>Created at</th>
+	</thead>
+		<tbody>
+	<tr data-ng-repeat="category in categories">
+		<td>{{category.id}}</td>
+		<td>{{category.name}}</td>
+		<td>{{category.created_at}}</td>
+	</tr>
+</tbody>
+</table>
+</div>
