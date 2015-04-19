@@ -10,6 +10,11 @@
 		<td>{{category.id}}</td>
 		<td>{{category.name}}</td>
 		<td>{{category.created_at}}</td>
+		<td width="10%" class="dropdown">
+		    <ul class="nav navbar-nav">
+		        <li><a ui-sref="category_edit({id: category.id})">Edit</a></li>
+ 		    </ul>
+		</td>
 	</tr>
 </tbody>
 </table>
