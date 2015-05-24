@@ -4,7 +4,38 @@ routerApp.controller('CategoryCtrl', function($scope, $http) {
 	success(function(data) {
 	    $scope.categories = data.categories;
 	});
-}).controller('CategoryEditCtrl', ['$scope', '$http', '$stateParams', '$state',
+}).controller('CategoryAddCtrl', ['$scope', '$http', '$stateParams', '$state',
+		function($scope, $http, $stateParams, $state) {
+
+		$scope.showLoading = true;
+		$scope.showSubmit = true;
+
+		  	$scope.submitData = function() 
+			{
+				$scope.showSubmit = false;
+				
+				if ($scope.formData)
+				{
+					var resourceURL = 'http://localhost:8888/resful/public/v1/categories';
+
+ 					var formData = $scope.formData.categories;
+ 					formData.parentId = 0;
+ 
+					$http.post(resourceURL, formData).
+					  	success(function(data, status) {
+					  		$scope.errors = null;
+							$scope.success = 'Your data has been saved';
+							$scope.showSubmit = true;
+							$state.go('category');
+					  	}).
+					  	error(function(data, status) {
+
+					  		$scope.errors = data.error.message;
+							$scope.showSubmit = true;
+					  	});
+				}
+			}
+	}]).controller('CategoryEditCtrl', ['$scope', '$http', '$stateParams', '$state',
 		function($scope, $http, $stateParams, $state) {
 
 		$scope.showLoading = true;
